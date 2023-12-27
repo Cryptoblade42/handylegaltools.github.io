@@ -39,49 +39,49 @@
                             <li>
                                 <a href="#">Domestic Cases</a>
                                 <ul>
-                                    <li><a href="../generators/reported-decisions.html">Reported Decisions</a></li>
-                                    <li><a href="#">Unreported Decisions (without MNC)</a></li>
-                                    <li><a href="#">Unreported Decisions (MNC)</a></li>
+                                    <li><a href="reported-decisions.html">Reported Decisions</a></li>
+                                    <li><a href="unreported-decisions-without-mnc.html">Unreported Decisions (without MNC)</a></li>
+                                    <li><a href="unreported-decisions-mnc.html">Unreported Decisions (MNC)</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#">Domestic Legislative Materials</a>
                                 <ul>
-                                    <li><a href="#">Statutes</a></li>
+                                    <li><a href="statutes.html">Statutes</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#">Journal Articles</a>
                                 <ul>
-                                    <li><a href="#">Single Author</a></li>
-                                    <li><a href="#">Two or Three Authors</a></li>
-                                    <li><a href="#">More Than Three Authors</a></li>
+                                    <li><a href="journal-articles-single-author.html">Single Author</a></li>
+                                    <li><a href="journal-articles-few-authors.html">Two or Three Authors</a></li>
+                                    <li><a href="journal-articles-many-authors.html">More Than Three Authors</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#">Books</a>
                                 <ul>
-                                    <li><a href="#">Standard</a></li>
-                                    <li><a href="#">Multi-Volume</a></li>
-                                    <li><a href="#">Edited (Multiple Authors)</a></li>
-                                    <li><a href="#">Translated</a></li>
+                                    <li><a href="books.html">Standard</a></li>
+                                    <li><a href="multi-volume-books.html">Multi-Volume</a></li>
+                                    <li><a href="edited-books.html">Edited (Multiple Authors)</a></li>
+                                    <li><a href="translated-books.html">Translated</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#">International Materials</a>
                                 <ul>
-                                    <li><a href="#">ICJ Reported Decisions</a></li>
-                                    <li><a href="#">ICJ Unreported Decisions</a></li>
-                                    <li><a href="#">Treaties</a></li>
+                                    <li><a href="icj-reported-decisions.html">ICJ Reported Decisions</a></li>
+                                    <li><a href="icj-unreported-decisions.html">ICJ Unreported Decisions</a></li>
+                                    <li><a href="treaties.html">Treaties</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#">Other Sources</a>
                                 <ul>
-                                    <li><a href="#">Websites</a></li>
-                                    <li><a href="#">Speeches</a></li>
-                                    <li><a href="#">Hardcopy Dictionaries</a></li>
-                                    <li><a href="#">Softcopy Dictionaries</a></li>
+                                    <li><a href="websites.html">Websites</a></li>
+                                    <li><a href="speeches.html">Speeches</a></li>
+                                    <li><a href="hardcopy-dictionaries.html">Hardcopy Dictionaries</a></li>
+                                    <li><a href="softcopy-dictionaries.html">Softcopy Dictionaries</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -156,10 +156,10 @@
                         var citationOutput = document.querySelector("#citation");
 
                         if (volumeInput.value.length !== 0) {
-                            citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " (" + yearInput.value + ") " + " " + volumeInput.value + " " + lawReportSeriesInput.value + " " + startingPageInput.value;
+                            citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " (" + yearInput.value + ") " + volumeInput.value + " " + lawReportSeriesInput.value + " " + startingPageInput.value;
                         }
                         else {
-                            citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " [" + yearInput.value + "] " + " " + lawReportSeriesInput.value + " " + startingPageInput.value;
+                            citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " [" + yearInput.value + "] " + lawReportSeriesInput.value + " " + startingPageInput.value;
                         }
 
                         if (pinpointInput.value.length !== 0) {
