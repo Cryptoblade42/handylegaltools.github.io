@@ -112,26 +112,34 @@
                     </header>
                 </article>
 
-                <h3>Required Information</h3>
-                <label for="caseName">Case Name</label>
-                <input id="caseName"><br><br>
-                <label for="year">Year</label>
-                <input id="year"><br><br>
-                <label for="lawReportSeries">Law Report Series</label>
-                <input id="lawReportSeries"><br><br>
-                <label for="startingPage">Starting Page</label>
-                <input id="startingPage"><br><br>
+                <div class="row">
+                    <div class="column">
+                        <h3>Required Information:</h3>
+                        <label for="caseName">Case Name</label>
+                        <input id="caseName"><br><br>
+                        <label for="year">Year</label>
+                        <input id="year"><br><br>
+                        <label for="lawReportSeries">Law Report Series</label>
+                        <input id="lawReportSeries"><br><br>
+                        <label for="startingPage">Starting Page</label>
+                        <input id="startingPage"><br><br>
+                    </div>
 
-                <h3>Optional information:</h3>
-
-                <label for="volume">Volume</label>
-                <input id="volume"><br><br>
-                <label for="pinpoint">Pinpoint</label>
-                <input id="pinpoint"><br><br>
-                <label for="paragraph">Paragraph Number</label>
-                <input id="paragraph"><br><br>
+                    <div class="column">
+                        <h3>Optional Information:</h3>
+                        <label for="volume">Volume</label>
+                        <input id="volume"><br><br>
+                        <label for="pinpoint">Pinpoint</label>
+                        <input id="pinpoint"><br><br>
+                        <label for="paragraph">Paragraph Number</label>
+                        <input id="paragraph"><br><br>
+                    </div>
+                </div>
 
                 <button onclick="generateCitation()"> Generate my citation!</button>
+
+                <br>
+                <br>
                 <div contenteditable="true">
                     <p id="citation"></p>
                 </div>
