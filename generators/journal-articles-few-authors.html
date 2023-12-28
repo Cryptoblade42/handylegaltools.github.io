@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Two or Three Authors Journal Articles Citation Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header">
+
+            <!-- Inner -->
+            <div class="inner">
+                <header>
+                    <h1><a href="../index.html" id="logo">Handy Legal Tools</a></h1>
+                </header>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li>
+                        <a href="#">Citation Generators</a>
+                        <ul>
+                            <li>
+                                <a href="#">Domestic Cases</a>
+                                <ul>
+                                    <li><a href="reported-decisions.html">Reported Decisions</a></li>
+                                    <li><a href="unreported-decisions-without-mnc.html">Unreported Decisions (without MNC)</a></li>
+                                    <li><a href="unreported-decisions-mnc.html">Unreported Decisions (MNC)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Domestic Legislative Materials</a>
+                                <ul>
+                                    <li><a href="statutes.html">Statutes</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Journal Articles</a>
+                                <ul>
+                                    <li><a href="journal-articles-single-author.html">Single Author</a></li>
+                                    <li><a href="journal-articles-few-authors.html">Two or Three Authors</a></li>
+                                    <li><a href="journal-articles-many-authors.html">More Than Three Authors</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Books</a>
+                                <ul>
+                                    <li><a href="books.html">Standard</a></li>
+                                    <li><a href="multi-volume-books.html">Multi-Volume</a></li>
+                                    <li><a href="edited-books.html">Edited (Multiple Authors)</a></li>
+                                    <li><a href="translated-books.html">Translated</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">International Materials</a>
+                                <ul>
+                                    <li><a href="icj-reported-decisions.html">ICJ Reported Decisions</a></li>
+                                    <li><a href="icj-unreported-decisions.html">ICJ Unreported Decisions</a></li>
+                                    <li><a href="treaties.html">Treaties</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Other Sources</a>
+                                <ul>
+                                    <li><a href="websites.html">Websites</a></li>
+                                    <li><a href="speeches.html">Speeches</a></li>
+                                    <li><a href="hardcopy-dictionaries.html">Hardcopy Dictionaries</a></li>
+                                    <li><a href="softcopy-dictionaries.html">Softcopy Dictionaries</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Other Tools</a>
+                        <ul>
+                            <li><a href="#">Law Report Series Sorter</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../changelog.html">Changelog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Main -->
+        <div class="wrapper style1">
+
+            <div class="container">
+                <article id="main" class="special">
+                    <header>
+                        <h2>Two or Three Authors Journal Articles Citation Generator</h2>
+                        <p>
+                            For journal articles written by two or three authors
+                        </p>
+                    </header>
+                </article>
+
+                <div class="row">
+                    <div class="column">
+                        <h3>Required Information:</h3>
+                        <label for="firstName1">First Author First Name</label>
+                        <input id="firstName1"><br><br>
+                        <label for="lastName1">First Author Last Name</label>
+                        <input id="lastName1"><br><br>
+                        <label for="firstName2">Second Author First Name</label>
+                        <input id="firstName2"><br><br>
+                        <label for="lastName2">Second Author Last Name</label>
+                        <input id="lastName2"><br><br>
+                        <label for="title">Article Title</label>
+                        <input id="title"><br><br>
+                        <label for="year">Publication Year</label>
+                        <input id="year"><br><br>
+                        <label for="issue">Issue</label>
+                        <input id="issue"><br><br>
+                        <label for="journalName">Name of the Journal</label>
+                        <input id="journalName"><br><br>
+                        <label for="startingPage">Starting Page Number</label>
+                        <input id="startingPage"><br><br>          
+                    </div>
+
+                    <div class="column">
+                        <h3>Optional Information:</h3>
+                        <label for="firstName3">Author First Name</label>
+                        <input id="firstName3"><br><br>
+                        <label for="lastName3">Author Last Name</label>
+                        <input id="lastName3"><br><br>
+                        <label for="volume">Volume</label>
+                        <input id="volume"><br><br>
+                        <label for="pinpoint">Pinpoint</label>
+                        <input id="pinpoint"><br><br>
+                    </div>
+                </div>
+
+                <button onclick="generateCitation()"> Generate my citation!</button>
+
+                <br>
+                <br>
+                <div contenteditable="true">
+                    <p id="citation"></p>
+                </div>
+                <script>
+                    function generateCitation() {
+                        let firstName1Input = document.querySelector("#firstName1");
+                        let lastName1Input = document.querySelector("#lastName1");
+                        let firstName2Input = document.querySelector("#firstName2");
+                        let lastName2Input = document.querySelector("#lastName2");
+                        let firstName3Input = document.querySelector("#firstName3");
+                        let lastName3Input = document.querySelector("#lastName3");
+                        let titleInput = document.querySelector("#title");
+                        let yearInput = document.querySelector("#year");
+                        let issueInput = document.querySelector("#issue");
+                        let journaleNameInput = document.querySelector("#journalName");
+                        let startingPageInput = document.querySelector("#startingPage");
+                        let volumeInput = document.querySelector("#volume");
+                        let pinpointInput = document.querySelector("#pinpoint");
+
+                        if (firstName3Input.value.length !== 0 && lastName3Input.value.length !== 0) {
+                            citation.innerHTML = "Your citation is: " + firstName1Input.value + " " + lastName1Input.value + ", " + firstName2Input.value + " " + lastName2Input.value + " and " + firstName3Input.value + " " + lastName3Input.value;
+                        }
+                        else {
+                            citation.innerHTML = "Your citation is: " + firstName1Input.value + " " + lastName1Input.value + " and " + firstName2Input.value + " " + lastName2Input.value;
+                        }
+
+                        if (volumeInput.value.length !== 0) {
+                            citation.innerHTML += ", '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journaleNameInput.value + "</span>" + " " + startingPageInput.value;
+                        }
+                        else {
+                            citation.innerHTML += ", '" + titleInput.value + "' [" + yearInput.value + "] " + " (" + issueInput.value + ") " + "<span>" + journaleNameInput.value + "</span>" + " " + startingPageInput.value;
+                        }
+
+                        if (pinpointInput.value.length !== 0) {
+                            citation.innerHTML += ", " + pinpointInput.value;
+                        }
+
+                        citation.innerHTML += ".";
+                    }
+                </script>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="copyright">
+                <ul class="menu">
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.dropotron.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
