@@ -154,16 +154,16 @@
                         let titleInput = document.querySelector("#title");
                         let yearInput = document.querySelector("#year");
                         let issueInput = document.querySelector("#issue");
-                        let journaleNameInput = document.querySelector("#journalName");
+                        let journalNameInput = document.querySelector("#journalName");
                         let startingPageInput = document.querySelector("#startingPage");
                         let volumeInput = document.querySelector("#volume");
                         let pinpointInput = document.querySelector("#pinpoint");
                         
                         if (volumeInput.value.length !== 0) {
-                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journaleNameInput.value + "</span>" + " " + startingPageInput.value;
+                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
                         }
                         else {
-                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' [" + yearInput.value + "] " + "(" + issueInput.value + ") " + "<span>" + journaleNameInput.value + "</span>" + " " + startingPageInput.value;
+                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' [" + yearInput.value + "] " + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
                         }
 
                         if (pinpointInput.value.length !== 0) {

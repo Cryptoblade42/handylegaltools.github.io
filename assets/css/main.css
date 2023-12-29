@@ -402,6 +402,12 @@ hr:after {
 
 }
 
+.column {
+	width: 50%;
+	flex-direction: wrap;
+	word-wrap: break-word;
+}
+
 /* Row */
 
 .row {
