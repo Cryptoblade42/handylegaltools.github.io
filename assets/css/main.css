@@ -408,6 +408,12 @@ hr:after {
 	word-wrap: break-word;
 }
 
+.small-column {
+	width: 25%;
+	flex-direction: wrap;
+	word-wrap: break-word;
+}
+
 /* Row */
 
 .row {
