@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -148,9 +149,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let firstNameInput = document.querySelector("#firstName");
@@ -160,19 +159,22 @@
                         let publisherInput = document.querySelector("#publisher");
                         let editionInput = document.querySelector("#edition");
                         let pinpointInput = document.querySelector("#pinpoint");
+                        let dirtyCitation = "";
 
                         if (editionInput.value.length !== 0) {
-                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", " + "<span>" + titleInput.value + "</span>" + " (" + publisherInput.value + ", " + editionInput.value + " ed, " + yearInput.value + ")";
+                            dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", " + "<span>" + titleInput.value + "</span>" + " (" + publisherInput.value + ", " + editionInput.value + " ed, " + yearInput.value + ")";
                         }
                         else {
-                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", " + "<span>" + titleInput.value + "</span>" + " (" + publisherInput.value + ", " + yearInput.value + ")";
+                            dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", " + "<span>" + titleInput.value + "</span>" + " (" + publisherInput.value + ", " + yearInput.value + ")";
                         }
 
                         if (pinpointInput.value.length !== 0) {
-                            citation.innerHTML += " " + pinpointInput.value;
+                            dirtyCitation += " " + pinpointInput.value;
                         }
 
-                        citation.innerHTML += ".";
+                        dirtyCitation += ".";
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
             </div>
