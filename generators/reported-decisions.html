@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -141,9 +142,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let caseNameInput = document.querySelector("#caseName");
@@ -153,23 +152,26 @@
                         let volumeInput = document.querySelector("#volume");
                         let pinpointInput = document.querySelector("#pinpoint");
                         let paragraphInput = document.querySelector("#paragraph");
+                        let dirtyCitation = "";
 
                         if (volumeInput.value.length !== 0) {
-                            citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " (" + yearInput.value + ") " + volumeInput.value + " " + lawReportSeriesInput.value + " " + startingPageInput.value;
+                            dirtyCitation = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " (" + yearInput.value + ") " + volumeInput.value + " " + lawReportSeriesInput.value + " " + startingPageInput.value;
                         }
                         else {
-                            citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " [" + yearInput.value + "] " + lawReportSeriesInput.value + " " + startingPageInput.value;
+                            dirtyCitation = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " [" + yearInput.value + "] " + lawReportSeriesInput.value + " " + startingPageInput.value;
                         }
 
                         if (pinpointInput.value.length !== 0) {
-                            citation.innerHTML += ", " + pinpointInput.value;
+                            dirtyCitation += ", " + pinpointInput.value;
                         }
 
                         if (paragraphInput.value.length !== 0) {
-                            citation.innerHTML += " [" + paragraphInput.value + "]";
+                            dirtyCitation += " [" + paragraphInput.value + "]";
                         }
 
-                        citation.innerHTML += ".";
+                        dirtyCitation += ".";
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
 

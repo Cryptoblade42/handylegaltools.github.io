@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -152,9 +153,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let firstNameInput = document.querySelector("#firstName");
@@ -167,17 +166,19 @@
                         let originalYearInput = document.querySelector("#originalYear");
                         let pinpointInput = document.querySelector("#pinpoint");
 
-                        citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", " + "<span>" + titleInput.value + "</span>" + ", tr " + translatorInput.value + " (" + publisherInput.value + ", " + yearInput.value + ")";
+                        let dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", " + "<span>" + titleInput.value + "</span>" + ", tr " + translatorInput.value + " (" + publisherInput.value + ", " + yearInput.value + ")";
 
                         if (pinpointInput.value.length !== 0) {
-                            citation.innerHTML += " " + pinpointInput.value;
+                            dirtyCitation += " " + pinpointInput.value;
                         }
 
                         if (originalTitleInput.value.length !== 0 && originalYearInput.value.length !== 0) {
-                            citation.innerHTML += " [trans of: " + "<span>" + originalTitleInput.value + "</span>" + " (" + originalYearInput.value + ")]"
+                            dirtyCitation += " [trans of: " + "<span>" + originalTitleInput.value + "</span>" + " (" + originalYearInput.value + ")]"
                         }
 
-                        citation.innerHTML += ".";
+                        dirtyCitation += ".";
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
             </div>

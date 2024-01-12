@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -153,9 +154,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let firstName1Input = document.querySelector("#firstName1");
@@ -171,26 +170,29 @@
                         let startingPageInput = document.querySelector("#startingPage");
                         let volumeInput = document.querySelector("#volume");
                         let pinpointInput = document.querySelector("#pinpoint");
+                        let dirtyCitation = "";
 
                         if (firstName3Input.value.length !== 0 && lastName3Input.value.length !== 0) {
-                            citation.innerHTML = "Your citation is: " + firstName1Input.value + " " + lastName1Input.value + ", " + firstName2Input.value + " " + lastName2Input.value + " and " + firstName3Input.value + " " + lastName3Input.value;
+                            dirtyCitation = "Your citation is: " + firstName1Input.value + " " + lastName1Input.value + ", " + firstName2Input.value + " " + lastName2Input.value + " and " + firstName3Input.value + " " + lastName3Input.value;
                         }
                         else {
-                            citation.innerHTML = "Your citation is: " + firstName1Input.value + " " + lastName1Input.value + " and " + firstName2Input.value + " " + lastName2Input.value;
+                            dirtyCitation = "Your citation is: " + firstName1Input.value + " " + lastName1Input.value + " and " + firstName2Input.value + " " + lastName2Input.value;
                         }
 
                         if (volumeInput.value.length !== 0) {
-                            citation.innerHTML += ", '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
+                            dirtyCitationL += ", '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
                         }
                         else {
-                            citation.innerHTML += ", '" + titleInput.value + "' [" + yearInput.value + "] " + " (" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
+                            dirtyCitation += ", '" + titleInput.value + "' [" + yearInput.value + "] " + " (" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
                         }
 
                         if (pinpointInput.value.length !== 0) {
-                            citation.innerHTML += ", " + pinpointInput.value;
+                            dirtyCitation += ", " + pinpointInput.value;
                         }
 
-                        citation.innerHTML += ".";
+                        dirtyCitation += ".";
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
 

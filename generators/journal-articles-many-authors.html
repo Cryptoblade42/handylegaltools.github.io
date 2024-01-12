@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -145,9 +146,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let firstNameInput = document.querySelector("#firstName");
@@ -159,19 +158,22 @@
                         let startingPageInput = document.querySelector("#startingPage");
                         let volumeInput = document.querySelector("#volume");
                         let pinpointInput = document.querySelector("#pinpoint");
+                        let dirtyCitation = "";
                         
                         if (volumeInput.value.length !== 0) {
-                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
+                            dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' (" + yearInput.value + ") " + volumeInput.value + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
                         }
                         else {
-                            citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' [" + yearInput.value + "] " + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
+                            dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + " et al, '" + titleInput.value + "' [" + yearInput.value + "] " + "(" + issueInput.value + ") " + "<span>" + journalNameInput.value + "</span>" + " " + startingPageInput.value;
                         }
 
                         if (pinpointInput.value.length !== 0) {
-                            citation.innerHTML += ", " + pinpointInput.value;
+                            dirtyCitation += ", " + pinpointInput.value;
                         }
 
-                        citation.innerHTML += ".";
+                        dirtyCitation += ".";
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
 

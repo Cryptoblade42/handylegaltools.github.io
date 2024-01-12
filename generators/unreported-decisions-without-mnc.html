@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -139,9 +140,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let caseNameInput = document.querySelector("#caseName");
@@ -151,17 +150,19 @@
                         let pinpointInput = document.querySelector("#pinpoint");
                         let paragraphInput = document.querySelector("#paragraph");
 
-                        citation.innerHTML = citation.innerHTML = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " (" + courtNameInput.value + ", " + judgeInput.value + ", " + dateInput.value + ")";
+                        let dirtyCitation = "Your citation is: " + "<span>" + caseNameInput.value + "</span>" + " (" + courtNameInput.value + ", " + judgeInput.value + ", " + dateInput.value + ")";
 
                         if (pinpointInput.value.length !== 0) {
-                            citation.innerHTML += ", " + pinpointInput.value;
+                            dirtyCitation += ", " + pinpointInput.value;
                         }
 
                         if (paragraphInput.value.length !== 0) {
-                            citation.innerHTML += " [" + paragraphInput.value + "]";
+                            dirtyCitation += " [" + paragraphInput.value + "]";
                         }
 
-                        citation.innerHTML += ".";
+                        dirtyCitation += ".";
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
 

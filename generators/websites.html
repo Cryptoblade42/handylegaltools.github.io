@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <script type="text/javascript" src="../dist/purify.min.js"></script>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -138,9 +139,7 @@
 
                 <br>
                 <br>
-                <div contenteditable="true">
-                    <p id="citation"></p>
-                </div>
+                <p id="citation"></p>
                 <script>
                     function generateCitation() {
                         let firstNameInput = document.querySelector("#firstName");
@@ -151,7 +150,9 @@
                         let dateInput = document.querySelector("#date");
                         let URLInput = document.querySelector("#URL");
 
-                        citation.innerHTML = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", '" + titleInput.value + "', " + "<span>" + websiteNameInput.value + "</span>" + " (" + postTypeInput.value + ", " + dateInput.value + ") \&lt" + URLInput.value + "\&gt."
+                        let dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", '" + titleInput.value + "', " + "<span>" + websiteNameInput.value + "</span>" + " (" + postTypeInput.value + ", " + dateInput.value + ") \&lt" + URLInput.value + "\&gt."
+                        let clean = DOMPurify.sanitize(dirtyCitation);
+                        citation.innerHTML = clean;
                     }
                 </script>
             </div>
