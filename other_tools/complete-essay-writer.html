@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>International Treaties Series Sorter</title>
+    <title>Complete Essay Writer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -117,102 +117,40 @@
             <div class="container">
                 <article id="main" class="special">
                     <header>
-                        <h2>International Treaties Series Sorter</h2>
+                        <h2>No</h2>
                         <p>
-                            A tool to find the most authoritative international treaty series
+                            Go write your essay yourself!
                         </p>
                     </header>
-                    <p>Note that this is not a comprehensive sorter. However, r 8.4 of the AGLC4 makes it clear that,
-                        where possible, UNTS and LNTS are the preferred series (United Nations and League of Nations
-                        respectively). The next preference is for state party treaty series and then
-                        international/regional treaty series. There are <b>many</b> treaty series, so I have included
-                        only those listed in the AGLC4. If there is a treaty series you think I should include, let me
-                        know through the <a href="contact.html">Contact</a> page.</p>
-                    <p>You must use the correct capitalisation for this sorter to work!</p>
-            </article>
-            <hr>
-            <div class="row">
-                <div class="column">
-                    <h3>Enter Your Treaty Series Here:</h3>
-                    <input type="data" id="input" placeholder="Series" />
-                    <button style="position:relative; left: 10px; padding: 0.3em 0.9em 0.3em 0.9em;" id="add-btn">Add
-                        Series</button>
-                    <br><br>
-                    <button id="sort-btn">Sort!</button>
-                    <br><br>
-                    <div id="sorted"></div>
-                </div>
-
-                <div class="column">
-                    <h3>Your Series List:</h3>
-                    <div id="series-list"></div>
-                    <button id="clear-btn">Clear</button>
-                </div>
+                    <p style="text-align:center">
+                    <iframe width="560" height="315"
+                        src="https://www.youtube-nocookie.com/embed/xMHJGd3wwZk?rel=0&amp;autoplay=1"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    </p>
+                </article>
             </div>
-
-            <script>
-                var tier1 = ["UNTS", "LNTS"];
-                var tier2 = ["ATS", "ATNIF", "CTS", "UTS"];
-                var tier3 = ["ConTS", "CETS", "PITS", "ETS", "OJ", "ILM"];
-
-                var input = document.getElementById("input");
-                var seriesArr = [];
-                var addBtn = document.getElementById("add-btn");
-                var display = document.getElementById("series-list");
-                var sortBtn = document.getElementById("sort-btn");
-                var clearBtn = document.getElementById("clear-btn");
-                var resultDisplay = document.getElementById("sorted");
-
-                addBtn.addEventListener("click", addAndDisplay);
-                sortBtn.addEventListener("click", sort);
-                clearBtn.addEventListener("click", clear);
-
-                function addAndDisplay() {
-                    seriesArr.push(input.value);
-                    if (seriesArr.length > 1) {
-                        display.textContent += ", " + input.value;
-                    }
-                    else {
-                        display.textContent += input.value;
-                    }
-                    input.value = "";
-                }
-
-                function sort() {
-                    const sortedSeries = seriesArr.filter(i => tier1.includes(i)).concat(seriesArr.filter(i => tier2.includes(i)), seriesArr.filter(i => tier3.includes(i)));
-                    const remEmpty = sortedSeries.filter(n => n);
-                    resultDisplay.textContent = remEmpty;
-                    const sortedSeriesString = remEmpty.join(', ')
-                    resultDisplay.textContent = "From most authoritative to least: " + sortedSeriesString;
-                }
-
-                function clear() {
-                    seriesArr = [];
-                    display.textContent = "";
-                }
-
-            </script>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <div id="footer">
-        <div class="copyright">
-            <ul class="menu">
-                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            </ul>
+        <!-- Footer -->
+        <div id="footer">
+            <div class="copyright">
+                <ul class="menu">
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/jquery.dropotron.min.js"></script>
-    <script src="../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
-    <script src="../assets/js/main.js"></script>
+        <!-- Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.dropotron.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
 
 </body>
 
