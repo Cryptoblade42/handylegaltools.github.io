@@ -124,7 +124,9 @@
                         <input id="firstName"><br><br>
                         <label for="lastName">Author Last Name</label>
                         <input id="lastName"><br><br>
-                        <label for="title">Chapter Title</label>
+                        <label for="chTitle">Chapter Title</label>
+                        <input id="chTitle"><br><br>
+                        <label for="title">Book Title</label>
                         <input id="title"><br><br>
                         <label for="editor">Editor Full Name</label>
                         <input id="editor"><br><br>
@@ -159,6 +161,7 @@
                     function generateCitation() {
                         let firstNameInput = document.querySelector("#firstName");
                         let lastNameInput = document.querySelector("#lastName");
+                        let chTitleInput = document.querySelector("#chTitle");
                         let titleInput = document.querySelector("#title");
                         let yearInput = document.querySelector("#year");
                         let publisherInput = document.querySelector("#publisher");
@@ -166,7 +169,7 @@
                         let startingPageInput = document.querySelector("#startingPage");
                         let pinpointInput = document.querySelector("#pinpoint");
 
-                        let dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", '" + titleInput.value + "' in " + editorInput.value + " (ed), " + "<span>" + titleInput.value + "</span>" + " (" + publisherInput.value + ", " + yearInput.value + ") " + startingPageInput.value;
+                        let dirtyCitation = "Your citation is: " + firstNameInput.value + " " + lastNameInput.value + ", '" + chTitleInput.value + "' in " + editorInput.value + " (ed), " + "<span>" + titleInput.value + "</span>" + " (" + publisherInput.value + ", " + yearInput.value + ") " + startingPageInput.value;
 
                         if (pinpointInput.value.length !== 0) {
                             dirtyCitation += ", " + pinpointInput.value;
